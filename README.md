@@ -1,8 +1,9 @@
+
+
+![lucid-origin_High-resolution_medical_AI_illustration_showing_human_brain_MRI_scans_being_anal-0](https://github.com/user-attachments/assets/65c269f4-9117-41ee-aa35-5643eb319841)
+
 # 🧠 Alzheimer MRI EfficientNet Stage Classification
 
-![banner-placeholder](https://github.com/user-attachments/assets/your-banner-image)
-
----
 
 ## 🧬 Introduction
 
