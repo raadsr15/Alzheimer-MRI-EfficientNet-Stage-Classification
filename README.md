@@ -137,76 +137,94 @@ Model evaluation includes:
 
 ## 📈 Results
 
-The EfficientNet model was trained using GPU acceleration with stratified sampling and class-weighted loss.
+The EfficientNet-based model was trained for **100 epochs** using GPU acceleration with stratified sampling and class-weighted loss. The training process demonstrated strong convergence and stable generalization performance.
 
-### 🧪 Final Performance (example)
+### 🧪 Final Training Summary
 
 | Metric | Value |
 |------|------|
-| Best Validation Accuracy | **XX%** |
-| Test Accuracy | **XX%** |
-| Final Test Loss | **XX.XX** |
+| Final Training Loss | **0.0160** |
+| Final Validation Loss | **0.0175** |
+| Best Validation Accuracy | **99.27%** |
+| Total Epochs | **100** |
 
-*(Replace values after training completion)*
-
----
-
-### 📉 Training Curves
-
-Insert generated figures here:
-- Loss vs Epochs
-- Validation Accuracy vs Epochs
+The close alignment between training and validation loss indicates **minimal overfitting** and strong generalization capability.
 
 ---
 
-### 📌 Interpretation
+## 📊 Confusion Matrix
 
-- Training and validation losses decreased consistently
-- Validation accuracy stabilized across epochs
-- Class-weighted loss improved minority class recognition
-- EfficientNet demonstrated strong MRI feature extraction capability
+The confusion matrix below illustrates the classification performance across all four Alzheimer’s stages.
 
----
+![Confusion Matrix](results/confusion_matrix.png)
 
-## 🧪 Validation on Custom MRI Images
+### Interpretation
 
-The trained model was tested on **previously unseen MRI scans**.
+- **Non Demented** samples are classified with very high accuracy, with minimal confusion.
+- **Very Mild Demented** cases show strong discrimination, with only minor overlap with Non Demented samples.
+- **Mild Demented** samples exhibit small misclassification toward adjacent cognitive stages, which is expected due to overlapping structural patterns.
+- **Moderate Demented** class achieves perfect classification despite limited sample size.
 
-Each prediction includes:
-- Input MRI image
-- Predicted Alzheimer stage
-- Class probability distribution
-
-*(Insert sample prediction figures here)*
+Overall, the confusion matrix demonstrates **robust inter-class separation**.
 
 ---
 
-## 🚀 Future Improvements
+## 📑 Classification Report (Per Class)
 
-- Vision Transformer (ViT) comparison
-- CNN–Transformer hybrid architectures
-- Grad-CAM and Grad-CAM++ explainability
-- Multi-slice MRI analysis
-- Integration of clinical metadata
-- Self-supervised pretraining (e.g., DINOv2)
+The following heatmap summarizes precision, recall, and F1-score for each class.
 
----
+![Classification Report](results/classification_report.png)
 
-## 🧠 Technologies Used
+| Class | Precision | Recall | F1-score |
+|------|-----------|--------|----------|
+| Mild Demented | 0.94 | 0.87 | 0.91 |
+| Moderate Demented | 1.00 | 1.00 | 1.00 |
+| Non Demented | 0.93 | 0.96 | 0.94 |
+| Very Mild Demented | 0.95 | 0.93 | 0.94 |
 
-- Python
-- PyTorch
-- EfficientNet (timm)
-- NumPy
-- Scikit-learn
-- Matplotlib
-- NVIDIA GPU (RTX 4060 Ti)
+### Observations
+
+- All classes achieve **F1-scores above 0.91**.
+- The **Moderate Demented** class reaches perfect performance, despite severe class imbalance.
+- High recall values indicate strong sensitivity in detecting Alzheimer’s stages.
 
 ---
 
-## 👨‍💻 Author
+## 📉 Training Loss Curve
 
-**Saha Reno**  
-BSc in Electrical & Electronic Engineering  
-Aspiring Data Science & AI Researcher
+The loss curve below shows the evolution of training and validation loss across epochs.
 
+![Loss Curve](results/loss_curve.png)
+
+### Interpretation
+
+- Rapid loss reduction occurs during early epochs, showing effective feature learning.
+- Training and validation losses remain closely aligned.
+- No divergence is observed, indicating **stable optimization and regularization**.
+
+---
+
+## 📈 Validation Accuracy Curve
+
+The validation accuracy progression during training is shown below.
+
+![Validation Accuracy](results/val_accuracy_curve.png)
+
+### Interpretation
+
+- Validation accuracy increases sharply within the first few epochs.
+- Performance stabilizes above **99%** for the majority of training.
+- Occasional small fluctuations are expected due to stochastic optimization.
+
+This confirms **excellent convergence and strong generalization**.
+
+---
+
+## 📌 Overall Performance Summary
+
+- The model achieves **near-perfect validation accuracy (99.27%)**.
+- Class imbalance was effectively handled using weighted loss.
+- EfficientNet demonstrates strong capability in extracting discriminative MRI features.
+- The training behavior shows **no signs of overfitting**.
+
+These results validate the suitability of EfficientNet for Alzheimer’s disease stage classification using structural MRI data.
