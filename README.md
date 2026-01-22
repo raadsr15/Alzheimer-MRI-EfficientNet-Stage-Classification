@@ -156,7 +156,8 @@ The close alignment between training and validation loss indicates **minimal ove
 
 The confusion matrix below illustrates the classification performance across all four Alzheimer’s stages.
 
-![Confusion Matrix](results/confusion_matrix.png)
+<img width="674" height="562" alt="image" src="https://github.com/user-attachments/assets/9ce81323-d571-4dd1-9c37-f3057b1c89f7" />
+
 
 ### Interpretation
 
@@ -173,7 +174,8 @@ Overall, the confusion matrix demonstrates **robust inter-class separation**.
 
 The following heatmap summarizes precision, recall, and F1-score for each class.
 
-![Classification Report](results/classification_report.png)
+<img width="501" height="390" alt="image" src="https://github.com/user-attachments/assets/f8b78ac6-2cc2-4c2a-9bf1-04eee0f87589" />
+
 
 | Class | Precision | Recall | F1-score |
 |------|-----------|--------|----------|
@@ -194,7 +196,8 @@ The following heatmap summarizes precision, recall, and F1-score for each class.
 
 The loss curve below shows the evolution of training and validation loss across epochs.
 
-![Loss Curve](results/loss_curve.png)
+<img width="622" height="393" alt="image" src="https://github.com/user-attachments/assets/f0bbce02-efb7-43db-b17d-068d620eac62" />
+
 
 ### Interpretation
 
@@ -208,7 +211,8 @@ The loss curve below shows the evolution of training and validation loss across 
 
 The validation accuracy progression during training is shown below.
 
-![Validation Accuracy](results/val_accuracy_curve.png)
+<img width="613" height="393" alt="image" src="https://github.com/user-attachments/assets/75521370-9993-43d6-83ad-71a084309474" />
+
 
 ### Interpretation
 
@@ -228,3 +232,38 @@ This confirms **excellent convergence and strong generalization**.
 - The training behavior shows **no signs of overfitting**.
 
 These results validate the suitability of EfficientNet for Alzheimer’s disease stage classification using structural MRI data.
+
+
+## 🧪 External Validation on Internet-Sourced MRI Samples
+
+To further evaluate the real-world generalization capability of the trained EfficientNet model, an additional experiment was conducted using **MRI images randomly downloaded from the internet**. These images were **not part of the training, validation, or test datasets** and were selected solely to assess out-of-distribution performance.
+
+The objective of this experiment was to verify whether the model could correctly identify Alzheimer’s stages from previously unseen sources with different acquisition settings, contrast variations, and preprocessing characteristics.
+
+### 🔍 Experimental Setup
+
+- Images were collected from publicly available online sources.
+- No fine-tuning or preprocessing adaptation was applied beyond the standard inference pipeline.
+- Each image was passed through the trained model using the same normalization and resizing steps as used during evaluation.
+
+---
+
+### ✅ Sample Predictions
+
+The model produced correct predictions with high confidence on both external samples.
+
+#### 🧠 Sample 1 — Non Demented MRI  
+*Correctly classified as Non Demented*
+
+<img width="328" height="350" alt="image" src="https://github.com/user-attachments/assets/6534e2b9-39a1-4a23-ae5c-dbfe1e222b32" />
+
+
+---
+
+#### 🧠 Sample 2 — Very Mild Demented MRI  
+*Correctly classified as Very Mild Demented*
+
+<img width="330" height="336" alt="image" src="https://github.com/user-attachments/assets/f88843e5-c6e1-49af-9433-ffcea3409ff1" />
+
+---
+
