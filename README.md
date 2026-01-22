@@ -267,3 +267,24 @@ The model produced correct predictions with high confidence on both external sam
 
 ---
 
+
+## Installation and Usage
+
+1. **Clone the repository:**
+    ```bash
+    git clone https://github.com/raadsr15/Alzheimer-MRI-EfficientNet-Stage-Classification.git
+    cd Alzheimer-MRI-EfficientNet-Stage-Classification
+
+2. **Install dependencies:**
+
+  ```bash
+  pip install -r requirements.txt
+  ```
+
+3. Train the model and obtain results
+   
+```bash
+jupyter notebook Alzheimer-MRI-EfficientNet-Stage-Classification.ipynb
+```
+
+
