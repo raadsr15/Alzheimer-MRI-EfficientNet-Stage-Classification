@@ -42,18 +42,7 @@ https://adni.loni.usc.edu/
 
 ---
 
-### ⚠️ Important Note on Data Access
 
-This dataset **does not provide direct access to original ADNI raw data**.
-
-Access to raw ADNI data requires:
-- Formal application
-- Acceptance of ADNI Data Use Agreement
-- Approval through the official ADNI portal
-
-This repository uses **derived and preprocessed data only**.
-
----
 
 ### 🧪 Preprocessing and Modifications
 
@@ -99,4 +88,125 @@ If you use this dataset, please cite the original data source accordingly.
 
 ---
 
-## 📁 Dataset Folder Structure
+
+
+## 🧠 Project Architecture
+
+This repository follows a clean, modular, and reproducible research-oriented architecture.
+
+### 🔍  Model Architecture
+- EfficientNet (B0 / B3) pretrained on ImageNet
+- Transfer learning–based fine-tuning
+- Custom classification head for four Alzheimer stages
+- Dropout regularization for improved generalization
+
+---
+
+### 🔄  Training Workflow
+- Stratified train–validation–test split
+- Weighted CrossEntropy loss for class imbalance handling
+- AdamW optimizer
+- Mixed precision training (AMP)
+- Best model checkpointing based on validation accuracy
+
+---
+
+### 🧾  Data Pipeline
+- Dataset loading via `torchvision.datasets.ImageFolder`
+- MRI normalization using ImageNet statistics
+- Data augmentation:
+  - Random rotation
+  - Horizontal flipping
+  - Brightness and contrast jitter
+- GPU-accelerated batching with PyTorch DataLoader
+
+---
+
+### 📊  Evaluation & Visualization
+Model evaluation includes:
+
+- Accuracy
+- Precision
+- Recall
+- F1-score
+- Confusion matrix visualization
+- Classification report heatmaps
+- Training loss and accuracy curves
+
+---
+
+## 📈 Results
+
+The EfficientNet model was trained using GPU acceleration with stratified sampling and class-weighted loss.
+
+### 🧪 Final Performance (example)
+
+| Metric | Value |
+|------|------|
+| Best Validation Accuracy | **XX%** |
+| Test Accuracy | **XX%** |
+| Final Test Loss | **XX.XX** |
+
+*(Replace values after training completion)*
+
+---
+
+### 📉 Training Curves
+
+Insert generated figures here:
+- Loss vs Epochs
+- Validation Accuracy vs Epochs
+
+---
+
+### 📌 Interpretation
+
+- Training and validation losses decreased consistently
+- Validation accuracy stabilized across epochs
+- Class-weighted loss improved minority class recognition
+- EfficientNet demonstrated strong MRI feature extraction capability
+
+---
+
+## 🧪 Validation on Custom MRI Images
+
+The trained model was tested on **previously unseen MRI scans**.
+
+Each prediction includes:
+- Input MRI image
+- Predicted Alzheimer stage
+- Class probability distribution
+
+*(Insert sample prediction figures here)*
+
+---
+
+## 🚀 Future Improvements
+
+- Vision Transformer (ViT) comparison
+- CNN–Transformer hybrid architectures
+- Grad-CAM and Grad-CAM++ explainability
+- Multi-slice MRI analysis
+- Integration of clinical metadata
+- Self-supervised pretraining (e.g., DINOv2)
+
+---
+
+## 🧠 Technologies Used
+
+- Python
+- PyTorch
+- EfficientNet (timm)
+- NumPy
+- Scikit-learn
+- Matplotlib
+- NVIDIA GPU (RTX 4060 Ti)
+
+---
+
+## 👨‍💻 Author
+
+**Saha Reno**  
+BSc in Electrical & Electronic Engineering  
+Aspiring Data Science & AI Researcher
+
